@@ -1,0 +1,2 @@
+# WebDev-Asiignment-2
+Assignment 2: The following are some of the most popular and used methods in functional languages:  forEach Map Filter Some (Any) Every Reduce Includes indexOf Push lastIndexOf Object.keys() Object.values()  For this assignment, you will recreate these methods using JavaScript functions. Make sure to carefully understand what each method is designed to do, and DO NOT use any of the respective native JS methods to implement your solutions. Also, keep in mind that these methods do not mutate the input array.
