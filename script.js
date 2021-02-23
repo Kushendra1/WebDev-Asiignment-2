@@ -24,16 +24,49 @@ Array.prototype.myFilter = function(callback) {
     return array;
 }
 
+//take in an array of elements and execute a callback function on each of those elements until it finds a callback that is true.
 Array.prototype.mySome = function(callback) {
+  //iterate through the array
+  for (let i= 0; i < this.length; i++) {
+    //if it finds a callback that matches the element then return true
+    if (callback(this[i], i, this)) {
+      return true;
+    }
+  }
+  return false;
+};
 
-}
-
+//take in an array of elements and execute a callback function on each of those elements until it finds that every callback that is true.
 Array.prototype.myEvery = function(callback) {
-
+  //iterate through the array
+  for (let i= 0; i < this.length; i++) {
+    //if the callback doesn't match the element then return false
+    if (!callback(this[i], i, this)) {
+      return false;
+    }
+  }
+  return true;
 }
 
-Array.prototype.myReduce = function(callback, currentValue) {
+//take in an array of elements and execute a callback function on each of those elements so that it accumulates the value of each element of the array. If there is an initialValue it adds that as well.
+Array.prototype.myReduce = function(callback, initialValue) {
+  //calling on an empty array will throw a TypeError
+  if (this.length === 0) {
+    throw TypeError;
+  }
 
+  else {
+    //make an accumulator so that it is either an initialValue if there or the first element
+    let acc = initialValue || this[0];
+    //make the index so that if there is an initialValue that is it, if not the start 1
+    let i = initialValue ? 0 : 1;
+    //iterate through the array
+    for (; i < this.length; i++){
+      //accumulate on currentValue, that becomes new currentValue. initialValue + currentValue = new initialValue.
+      acc = callback(acc, this[i], i, this);
+    }
+    return acc;
+  }
 }
 
 Array.prototype.myIncludes = function(targetElement, fromIndex = 0) {
