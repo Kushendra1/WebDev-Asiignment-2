@@ -12,14 +12,17 @@ Array.prototype.myFilter = function(callback) {
 
 }
 
-Array.prototype.some = function(callback) {
+//take in an array of elements and execute a callback function on each of those elements until it finds a callback that is true.
+Array.prototype.mySome = function(callback) {
+  //iterate through the array
   for (let i= 0; i < this.length; i++) {
+    //if it finds a callback that matches the element then return true
     if (callback(this[i], i, this)) {
       return true;
     }
   }
   return false;
-}
+};
 
 Array.prototype.myEvery = function(callback) {
 
