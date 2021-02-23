@@ -24,8 +24,16 @@ Array.prototype.mySome = function(callback) {
   return false;
 };
 
+//take in an array of elements and execute a callback function on each of those elements until it finds that every callback that is true.
 Array.prototype.myEvery = function(callback) {
-
+  //iterate through the array
+  for (let i= 0; i < this.length; i++) {
+    //if the callback doesn't match the element then return false
+    if (!callback(this[i], i, this)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 Array.prototype.myReduce = function(callback, currentValue) {
