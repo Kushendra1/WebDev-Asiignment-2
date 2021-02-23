@@ -5,11 +5,23 @@ Array.prototype.myEach = function(callback) {
 }
 
 Array.prototype.myMap = function(callback) {
-
+    let array=[];
+    for(let i=0; i< this.length; i++){
+        // do whatever needs to be done to the element and then add it to the array that will be returned.
+        array.push(callback(this[i]));
+    }
+    return array;
 }
 
 Array.prototype.myFilter = function(callback) {
-
+    let array=[];
+    for(let i=0; i< this.length; i++){
+        //if it meets the requirements add it to the array which will be returned
+        if(callback(this[i])) {
+            array.push(this[i]);
+        }
+    }
+    return array;
 }
 
 //take in an array of elements and execute a callback function on each of those elements until it finds a callback that is true.
