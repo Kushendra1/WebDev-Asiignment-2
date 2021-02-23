@@ -69,16 +69,53 @@ Array.prototype.myReduce = function(callback, initialValue) {
   }
 }
 
+// returns true or false if a specified element is in the array or not
 Array.prototype.myIncludes = function(targetElement, fromIndex = 0) {
-
+  // returns false if specified index is larger than length of the array
+  if (fromIndex >= this.length){
+    return false;
+  }
+  // iterates through the array finding if the target element exists in the array
+  for(let i = fromIndex; i < this.length; i++) {
+   if (this[i] === targetElement) {
+     return true;
+   }
+ }
+ return false;
 }
 
+//returns the first index of a given element inside an array, returns -1 if it's not there
 Array.prototype.myIndexOf = function(targetElement, fromIndex = 0) {
-
+  //if given index is negative, offsets the index to stil search front and back
+  if(fromIndex < 0){
+    fromIndex = this.length + fromIndex;
+  }
+  // if given index is greater than the length of the array, returns -1
+  if(fromIndex >= this.lenth){
+    return -1;
+  }
+  // returns the index value of the target element
+  for(let i = fromIndex; i < this.length; i++){
+    if(this[i] === targetElement){
+      return i;
+    }
+  }
+  return -1;
 }
 
-Array.prototype.myPush = function(targetElement) {
-
+//adds element(s) to the end of the array
+Array.prototype.myPush = function() {
+  var end = this.length;
+  const array = arguments;
+  // iterates through the array of items to be added to the already existing array
+  for(let i = 0; i < array.length; i++){
+    //adds items to the end of the array
+    this[end] = array[i];
+    //increments the length of the array after each item have been added
+    end++;
+  }
+  //returns the length of the completed array
+  return this.length;
 }
 
 // returns the index of the last encounter of a target element
