@@ -91,7 +91,7 @@ Array.prototype.myIndexOf = function(targetElement, fromIndex = 0) {
     fromIndex = this.length + fromIndex;
   }
   // if given index is greater than the length of the array, returns -1
-  if(fromIndex >= this.lenth){
+  if(fromIndex >= this.length){
     return -1;
   }
   // returns the index value of the target element
